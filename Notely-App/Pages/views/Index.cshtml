@@ -1,0 +1,39 @@
+﻿@page
+@model Notely_App.Pages.views.IndexModel
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<partial name="_Tempdata" />
+<div class="container table-content">
+        <table class="table table-borded table-responsive table-striped " id="table-list">
+            <thead class="table-dark">
+                <tr>
+                    <td>Company</td>
+                    <td>Name</td>
+                    <td>Amount</td>
+                    <td>Number</td>
+                    <td>Total</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var v in Model.Items){
+                <tr>
+                    <td>@v.Company</td>
+                    <td>@v.Name</td>
+                    <td>@v.ItemsAm</td>
+                    <td>@v.ItemsNo</td>
+                    <td>@v.Total</td>
+                     <td>
+                         <a asp-page="Update" class="btn btn-warning" asp-route-id="@v.Id">Edit</a>
+                         <a class="btn btn-danger" asp-page="Delete" asp-route-id="@v.Id">Delete</a>
+
+                     </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        <a asp-page="Create" class="btn btn-info" id="add"><span class="glyphicon glyphicon-plus-sign"></span>Add More</a>
+    </div>

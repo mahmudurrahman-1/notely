@@ -1,0 +1,37 @@
+﻿@page
+@model Notely_App.Pages.views.DeleteModel
+
+<form method="post" >
+<div class="border p-3 mt-4">
+    <div class="row pb-2">
+        <h2>Delete &minus;</h2>
+        <hr />
+    </div>
+    <input asp-for="@Model.Items.Id" hidden />
+    <div class="mb-3">
+        <label asp-for="@Model.Items.Company"></label>
+        <input disabled asp-for="@Model.Items.Company" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.Items.Name"></label>
+        <input disabled class="form-control" asp-for="@Model.Items.Name" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.Items.ItemsNo"></label>
+        <input disabled class="form-control" asp-for="@Model.Items.ItemsNo" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.Items.ItemsAm"></label>
+        <input disabled class="form-control" asp-for="@Model.Items.ItemsAm" />
+    </div>
+    <button type="submit" class="btn-danger" style ="width:150px;">Delete &minus;</button>
+    <a asp-page="Index" class="btn btn-primary" ><span class="glyphicon glyphicon-plus-sign"></span>Return</a>
+
+</div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
